@@ -106,7 +106,7 @@ class OfficeHoursPlugin extends Plugin
 
             if ($startTime === $endTime) { continue; } // ignore - invalid
 
-            if ($startTime < $endTime) // swap
+            if ($startTime > $endTime) // swap
             {
                 $tmp = $startString;
                 $startString = $endString;
@@ -119,10 +119,20 @@ class OfficeHoursPlugin extends Plugin
 
             $overlapping = false;
 
-            // foreach ($overlappingEntries as $timeEntry)
-            // {
-            //     if ()
-            // }
+            foreach ($entriesAsNumbers as $timeEntry)
+            {
+                $eStart = $timeEntry[0];
+                $eEnd = $timeEntry[1];
+
+                if (
+                    ($startTime <= $eStart && $endTime >= $eStart) ||
+                    ($startTime <= $eEnd && $endTime >= $eEnd)
+                )
+                {
+                    $overlapping = true;
+                    break;
+                }
+            }
 
             if ($overlapping) { continue; } // ignore - invalid
 
