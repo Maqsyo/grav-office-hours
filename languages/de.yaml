@@ -1,0 +1,18 @@
+PLUGIN_OFFICE_HOURS:
+  DAYS:
+    MONDAY:  'Montag'
+    TUESDAY:  'Dienstag'
+    WEDNESDAY: 'Mittwoch'
+    THURSDAY: 'Donnerstag'
+    FRIDAY: 'Freitag'
+    SATURDAY: 'Samstag'
+    SUNDAY: 'Sonntag'
+  GENERAL:
+    HEADLINE_OFFICE_HOURS: 'Öffnungszeiten'
+    HEADLINE_OFFICE_HOURS_SPECIAL: 'Gesonderte Öffnungszeiten'
+    HEADLINE_CLOSED: 'Feiertage'
+    OPENS_AT: 'öffnet um'
+    CLOSES_AT: 'schließt um'
+    CLOSED_STARTS_AT: 'beginnt am'
+    CLOSED_ENDS_AT: 'endet am'
+    HIDDEN: 'versteckt'

@@ -30,7 +30,321 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
-    text_var:
-      type: text
-      label: PLUGIN_OFFICE_HOURS.TEXT_VARIABLE
-      help: PLUGIN_OFFICE_HOURS.TEXT_VARIABLE_HELP
+
+    openinghours:
+      type: fieldset
+      title: PLUGIN_OFFICE_HOURS.GENERAL.HEADLINE_OFFICE_HOURS
+      icon: calendar
+      collapsed: true
+      collapsible: true
+      fields:
+
+        .monday:
+          type: fieldset
+          collapsed: true
+          collapsible: true
+          title: PLUGIN_OFFICE_HOURS.DAYS.MONDAY
+          underline: true
+          fields:
+
+            .hidden:
+              type: toggle
+              default: 0
+              label: PLUGIN_OFFICE_HOURS.GENERAL.HIDDEN
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            .entries:
+              type: list
+              style: vertical
+              fields:
+                .start:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.OPENS_AT
+                  size: small
+                  validate:
+                    required: true
+                .end:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.CLOSES_AT
+                  size: small
+                  validate:
+                    required: true
+
+        .tuesday:
+          type: fieldset
+          collapsed: true
+          collapsible: true
+          title: PLUGIN_OFFICE_HOURS.DAYS.TUESDAY
+          underline: true
+          fields:
+
+            .hidden:
+              type: toggle
+              default: 0
+              label: PLUGIN_OFFICE_HOURS.GENERAL.HIDDEN
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            .entries:
+              type: list
+              style: vertical
+              fields:
+                .start:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.OPENS_AT
+                  size: small
+                  validate:
+                    required: true
+                .end:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.CLOSES_AT
+                  size: small
+                  validate:
+                    required: true
+
+        .wednesday:
+          type: fieldset
+          collapsed: true
+          collapsible: true
+          title: PLUGIN_OFFICE_HOURS.DAYS.WEDNESDAY
+          underline: true
+          fields:
+
+            .hidden:
+              type: toggle
+              default: 0
+              label: PLUGIN_OFFICE_HOURS.GENERAL.HIDDEN
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            .entries:
+              type: list
+              style: vertical
+              fields:
+                .start:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.OPENS_AT
+                  size: small
+                  validate:
+                    required: true
+                .end:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.CLOSES_AT
+                  size: small
+                  validate:
+                    required: true
+
+        .thursday:
+          type: fieldset
+          collapsed: true
+          collapsible: true
+          title: PLUGIN_OFFICE_HOURS.DAYS.THURSDAY
+          underline: true
+          fields:
+
+            .hidden:
+              type: toggle
+              default: 0
+              label: PLUGIN_OFFICE_HOURS.GENERAL.HIDDEN
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            .entries:
+              type: list
+              style: vertical
+              fields:
+                .start:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.OPENS_AT
+                  size: small
+                  validate:
+                    required: true
+                .end:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.CLOSES_AT
+                  size: small
+                  validate:
+                    required: true
+
+        .friday:
+          type: fieldset
+          collapsed: true
+          collapsible: true
+          title: PLUGIN_OFFICE_HOURS.DAYS.FRIDAY
+          underline: true
+          fields:
+
+            .hidden:
+              type: toggle
+              default: 0
+              label: PLUGIN_OFFICE_HOURS.GENERAL.HIDDEN
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            .entries:
+              type: list
+              style: vertical
+              fields:
+                .start:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.OPENS_AT
+                  size: small
+                  validate:
+                    required: true
+                .end:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.CLOSES_AT
+                  size: small
+                  validate:
+                    required: true
+
+        .saturday:
+          type: fieldset
+          collapsed: true
+          collapsible: true
+          title: PLUGIN_OFFICE_HOURS.DAYS.SATURDAY
+          underline: true
+          fields:
+
+            .hidden:
+              type: toggle
+              default: 0
+              label: PLUGIN_OFFICE_HOURS.GENERAL.HIDDEN
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            .entries:
+              type: list
+              style: vertical
+              fields:
+                .start:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.OPENS_AT
+                  size: small
+                  validate:
+                    required: true
+                .end:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.CLOSES_AT
+                  size: small
+                  validate:
+                    required: true
+
+        .sunday:
+          type: fieldset
+          collapsed: true
+          collapsible: true
+          title: PLUGIN_OFFICE_HOURS.DAYS.SUNDAY
+          underline: true
+          fields:
+
+            .hidden:
+              type: toggle
+              default: 0
+              label: PLUGIN_OFFICE_HOURS.GENERAL.HIDDEN
+              highlight: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            .entries:
+              type: list
+              style: vertical
+              fields:
+                .start:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.OPENS_AT
+                  size: small
+                  validate:
+                    required: true
+                .end:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.CLOSES_AT
+                  size: small
+                  validate:
+                    required: true
+
+    special:
+      type: fieldset
+      title: PLUGIN_OFFICE_HOURS.GENERAL.HEADLINE_OFFICE_HOURS_SPECIAL
+      icon: calendar
+      collapsed: true
+      collapsible: true
+      fields:
+        .entries:
+          type: list
+          style: vertical
+          fields:
+            .date:
+              type: datetime
+              label: PLUGIN_ADMIN.DATE
+              format: 'Y-m-d'
+              validate:
+                required: true
+            .entries:
+              type: list
+              style: vertical
+              fields:
+                .start:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.OPENS_AT
+                  size: small
+                  validate:
+                    required: true
+                .end:
+                  type: time
+                  label: PLUGIN_OFFICE_HOURS.GENERAL.CLOSES_AT
+                  size: small
+                  validate:
+                    required: true
+
+    closed:
+      type: fieldset
+      title: PLUGIN_OFFICE_HOURS.GENERAL.HEADLINE_CLOSED
+      icon: calendar
+      collapsed: true
+      collapsible: true
+      fields:
+        .entries:
+          type: list
+          style: vertical
+          fields:
+            .start:
+              type: datetime
+              label: PLUGIN_OFFICE_HOURS.GENERAL.CLOSED_STARTS_AT
+              format: 'Y-m-d'
+              validate:
+                required: true
+            .end:
+              type: datetime
+              label: PLUGIN_OFFICE_HOURS.GENERAL.CLOSED_ENDS_AT
+              format: 'Y-m-d'
+              validate:
+                required: true
