@@ -102,7 +102,7 @@ class OfficeHoursPlugin extends Plugin
             $startString = $entry['start'];
             $startTime = $this->timeToMinutes($startString);
             $endString = $entry['end'];
-            $endTime = $this->timeToMinutes($startString);
+            $endTime = $this->timeToMinutes($endString);
 
             if ($startTime === $endTime) { continue; } // ignore - invalid
 
