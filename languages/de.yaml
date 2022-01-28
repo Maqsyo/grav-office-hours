@@ -7,6 +7,8 @@ PLUGIN_OFFICE_HOURS:
     FRIDAY: 'Freitag'
     SATURDAY: 'Samstag'
     SUNDAY: 'Sonntag'
+  SETTINGS:
+    TRIM_TIME: 'Zeit kürzen'
   GENERAL:
     HEADLINE_OFFICE_HOURS: 'Öffnungszeiten'
     HEADLINE_OFFICE_HOURS_SPECIAL: 'Gesonderte Öffnungszeiten'

@@ -30,6 +30,16 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
+    trimTime:
+      type: toggle
+      label: PLUGIN_OFFICE_HOURS.SETTINGS.TRIM_TIME
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.YES
+        0: PLUGIN_ADMIN.NO
+      validate:
+        type: bool
 
     openinghours:
       type: fieldset
