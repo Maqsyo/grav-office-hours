@@ -342,7 +342,7 @@ form:
       collapsed: true
       collapsible: true
       fields:
-        .entries:
+        closingDays:
           type: list
           style: vertical
           fields:

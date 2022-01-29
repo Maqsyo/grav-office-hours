@@ -59,14 +59,14 @@ class OfficeHoursPlugin extends Plugin
         $data = [
             'openinghours' => [],
             'specialOpenings' => [],
-            'closedDays' => []
+            'closingDays' => []
         ];
 
         $trimTime = !!$this->config->get('plugins.office-hours.trimTime');
 
         $openinghours = $this->config->get('plugins.office-hours.openinghours') ?? [];
         $specialOpenings = $this->config->get('plugins.office-hours.specialOpenings') ?? [];
-        $closedDays = $this->config->get('plugins.office-hours.closed') ?? [];
+        $closingDays = $this->config->get('plugins.office-hours.closingDays') ?? [];
 
         foreach ($openinghours as $day => $dayConfig)
         {
@@ -89,7 +89,7 @@ class OfficeHoursPlugin extends Plugin
         foreach ($specialOpenings as $dayConfig)
         {
             $dayDate = new \DateTime($dayConfig['date']);
-            if ($today > $dayDate) { return; }
+            if ($today > $dayDate) { continue; }
 
             $languageKey = strtoupper($dayDate->format('l'));
 
@@ -101,6 +101,23 @@ class OfficeHoursPlugin extends Plugin
                 ]),
                 'entries' => $this->cleanUpDayEntries($dayConfig['entries'], $trimTime)
             ];
+        }
+
+        foreach ($closingDays as $dayConfig)
+        {
+            $startDate = new \DateTime($dayConfig['start']);
+            $endDate = new \DateTime($dayConfig['end']);
+
+            if ($endDate < $today) { continue; }
+
+            $closedDay = ['start' => $startDate];
+
+            if ($endDate > $startDate)
+            {
+                $closedDay['end'] = $endDate;
+            }
+
+            $data['closingDays'][] = $closedDay;
         }
 
         return $data;
