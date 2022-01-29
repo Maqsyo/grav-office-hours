@@ -91,8 +91,14 @@ class OfficeHoursPlugin extends Plugin
             $dayDate = new \DateTime($dayConfig['date']);
             if ($today > $dayDate) { return; }
 
+            $languageKey = strtoupper($dayDate->format('l'));
+
             $data['specialOpenings'][] = [
                 'date' => $dayDate,
+                'languageKey' => $languageKey,
+                'dayName' => $this->grav['language']->translate([
+                    'PLUGIN_OFFICE_HOURS.DAYS.' . $languageKey
+                ]),
                 'entries' => $this->cleanUpDayEntries($dayConfig['entries'], $trimTime)
             ];
         }
