@@ -64,9 +64,9 @@ class OfficeHoursPlugin extends Plugin
 
         $trimTime = !!$this->config->get('plugins.office-hours.trimTime');
 
-        $openinghours = $this->config->get('plugins.office-hours.openinghours');
-        $specialOpenings = $this->config->get('plugins.office-hours.special');
-        $closedDays = $this->config->get('plugins.office-hours.closed');
+        $openinghours = $this->config->get('plugins.office-hours.openinghours') ?? [];
+        $specialOpenings = $this->config->get('plugins.office-hours.specialOpenings') ?? [];
+        $closedDays = $this->config->get('plugins.office-hours.closed') ?? [];
 
         foreach ($openinghours as $day => $dayConfig)
         {
@@ -79,6 +79,20 @@ class OfficeHoursPlugin extends Plugin
                 'dayName' => $this->grav['language']->translate([
                     'PLUGIN_OFFICE_HOURS.DAYS.' . $languageKey
                 ]),
+                'entries' => $this->cleanUpDayEntries($dayConfig['entries'], $trimTime)
+            ];
+        }
+
+        $now = new \DateTime();
+        $today = new \DateTime($now->format('Y-m-d'));
+
+        foreach ($specialOpenings as $dayConfig)
+        {
+            $dayDate = new \DateTime($dayConfig['date']);
+            if ($today > $dayDate) { return; }
+
+            $data['specialOpenings'][] = [
+                'date' => $dayDate,
                 'entries' => $this->cleanUpDayEntries($dayConfig['entries'], $trimTime)
             ];
         }

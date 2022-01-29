@@ -308,7 +308,7 @@ form:
       collapsed: true
       collapsible: true
       fields:
-        .entries:
+        specialOpenings:
           type: list
           style: vertical
           fields:
