@@ -94,8 +94,7 @@ class OfficeHoursPlugin extends Plugin
 
     private function cleanUpDayEntries($entries, $trimTime)
     {
-        $returnArray = [];
-        $entriesAsNumbers = [];
+        $cacheArray = [];
 
         foreach ($entries as $entry)
         {
@@ -119,7 +118,7 @@ class OfficeHoursPlugin extends Plugin
 
             $overlapping = false;
 
-            foreach ($entriesAsNumbers as $timeEntry)
+            foreach ($cacheArray as $timeEntry)
             {
                 $eStart = $timeEntry[0];
                 $eEnd = $timeEntry[1];
@@ -136,8 +135,6 @@ class OfficeHoursPlugin extends Plugin
 
             if ($overlapping) { continue; } // ignore - invalid
 
-            $entriesAsNumbers[] = [$startTime, $endTime];
-
             // trim last 3 characters if trimming is enabled and minutes == 0
             if ($trimTime)
             {
@@ -152,12 +149,15 @@ class OfficeHoursPlugin extends Plugin
                 }
             }
 
-            $returnArray[] = [
-                'start' => $startString,
-                'end' => $endString
-            ];
+            $cacheArray[] = [$startTime, $endTime, $startString, $endString];
         }
 
-        return $returnArray;
+        // sort by start-time
+        uasort($cacheArray, fn($a, $b) => $a[0] - $b[0]);
+
+        return array_map(fn($a) => [
+            'start' => $a[2],
+            'end' => $a[3]
+        ], $cacheArray);
     }
 }
