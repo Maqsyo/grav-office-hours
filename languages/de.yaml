@@ -12,7 +12,7 @@ PLUGIN_OFFICE_HOURS:
   GENERAL:
     HEADLINE_OFFICE_HOURS: 'Öffnungszeiten'
     HEADLINE_OFFICE_HOURS_SPECIAL: 'Gesonderte Öffnungszeiten'
-    HEADLINE_CLOSED: 'Feiertage'
+    HEADLINE_CLOSED: 'Geschlossen'
     OPENS_AT: 'öffnet um'
     CLOSES_AT: 'schließt um'
     CLOSED_STARTS_AT: 'beginnt am'

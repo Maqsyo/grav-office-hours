@@ -74,12 +74,14 @@ class OfficeHoursPlugin extends Plugin
 
             $languageKey = strtoupper($day);
 
+            $entries = isset($dayConfig['entries']) ? $dayConfig['entries'] : [];
+
             $data['openinghours'][] = [
                 'languageKey' => $languageKey,
                 'dayName' => $this->grav['language']->translate([
                     'PLUGIN_OFFICE_HOURS.DAYS.' . $languageKey
                 ]),
-                'entries' => $this->cleanUpDayEntries($dayConfig['entries'], $trimTime)
+                'entries' => $this->cleanUpDayEntries($entries, $trimTime)
             ];
         }
 
@@ -93,13 +95,15 @@ class OfficeHoursPlugin extends Plugin
 
             $languageKey = strtoupper($dayDate->format('l'));
 
+            $entries = isset($dayConfig['entries']) ? $dayConfig['entries'] : [];
+
             $data['specialOpenings'][] = [
                 'date' => $dayDate,
                 'languageKey' => $languageKey,
                 'dayName' => $this->grav['language']->translate([
                     'PLUGIN_OFFICE_HOURS.DAYS.' . $languageKey
                 ]),
-                'entries' => $this->cleanUpDayEntries($dayConfig['entries'], $trimTime)
+                'entries' => $this->cleanUpDayEntries($entries, $trimTime)
             ];
         }
 
